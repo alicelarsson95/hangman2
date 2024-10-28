@@ -1,0 +1,30 @@
+body {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: auto;
+}
+
+svg {
+    grid-column: 2/5;
+    margin-top: 3rem;
+}
+
+article {
+ font-family: Georgia, 'Times New Roman', Times, serif;
+ grid-column: 6/9;
+ margin-top: 2rem;
+}
+
+#start-button {
+    font-size: 1rem;
+    border-radius: 0.2rem;
+    margin-bottom: 1rem;
+    border: none;
+    background-color: rgb(110, 173, 110);
+    width: 8rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+
+
