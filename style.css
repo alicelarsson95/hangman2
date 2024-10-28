@@ -1,17 +1,16 @@
 body {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: auto;
+    display: grid; grid-template-columns: repeat(8, 1fr);
+
 }
 
 svg {
-    grid-column: 2/5;
+    grid-column: 2/4;
     margin-top: 3rem;
 }
 
 article {
  font-family: Georgia, 'Times New Roman', Times, serif;
- grid-column: 6/9;
+ grid-column: 5/7;
  margin-top: 2rem;
 }
 
@@ -24,6 +23,10 @@ article {
     width: 8rem;
     height: 2rem;
     cursor: pointer;
+}
+
+#word-display {
+    margin-bottom: 5rem;
 }
 
 
