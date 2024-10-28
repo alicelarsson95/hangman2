@@ -57,7 +57,7 @@ function handleGuess() {
 function checkGameStatus() {
   if (wrongGuesses >= maxWrongGuesses) {
     message.textContent = `Game Over! Ordet var: ${chosenWord}`;
-    guessButton.disabled = true; // Inaktivera knappen
+    guessButton.disabled = true; 
   } else if (!wordDisplay.textContent.includes("_")) {
     message.textContent = "Grattis, rätt ord!";
     guessButton.disabled = true;
