@@ -14,7 +14,8 @@ function chooseRandomWord() {
   chosenWord = hangmanWords[Math.floor(Math.random() * hangmanWords.length)];
   guessedLetters = []; 
   wrongGuesses = 0;    
-  displayWord();       
+  displayWord();
+  resetHangman(); 
   message.textContent = "Nytt spel, gissa en bokstav!";
 }
 
@@ -24,6 +25,20 @@ function displayWord() {
     .map((letter) => (guessedLetters.includes(letter) ? letter : "_"))
     .join(" ");
   wordDisplay.textContent = display;
+}
+
+function showHangmanPart() {
+  const hangmanParts = ["head", "body", "arms", "legs"]; 
+  if (wrongGuesses <= maxWrongGuesses) {
+    document.getElementById(hangmanParts[wrongGuesses - 1]).style.display = "block"; 
+  }
+}
+
+function resetHangman() {
+  const hangmanParts = ["head", "body", "arms", "legs"];
+  hangmanParts.forEach(part => {
+    document.getElementById(part).style.display = "none"; 
+  });
 }
 
 function handleGuess() {
@@ -46,6 +61,7 @@ function handleGuess() {
     message.textContent = "Rätt gissning!";
   } else {
     wrongGuesses++;
+    showHangmanPart(); 
     message.textContent = "Fel gissning..";
   }
 
@@ -69,4 +85,3 @@ startButton.addEventListener("click", () => {
   chooseRandomWord();
   guessButton.disabled = false; 
 });
-

@@ -1,17 +1,27 @@
 body {
-    display: grid; grid-template-columns: repeat(8, 1fr);
-
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
 }
 
+
 svg {
-    grid-column: 2/4;
+    grid-column: 2 / 4;
     margin-top: 3rem;
 }
 
+#ground,
+#scaffold,
+#head,
+#body,
+#arms,
+#legs {
+    display: none; 
+}
+
 article {
- font-family: Georgia, 'Times New Roman', Times, serif;
- grid-column: 5/7;
- margin-top: 2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    grid-column: 5 / 7;
+    margin-top: 2rem;
 }
 
 #start-button {
@@ -28,6 +38,4 @@ article {
 #word-display {
     margin-bottom: 5rem;
 }
-
-
 
