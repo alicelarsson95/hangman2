@@ -1,5 +1,5 @@
 const maxWrongGuesses = 6;
-const hangmanParts = ["head", "body", "arms", "legs", "scaffold", "ground"];
+const hangmanParts = ["ground", "scaffold", "head", "body", "arms", "legs"];
 const hangmanWords = ["apple", "grape", "peach", "berry", "lemon"];
 
 const wordDisplay = document.getElementById("word-display");
