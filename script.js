@@ -15,7 +15,7 @@ const gameStatus = {
 
 function chooseRandomWord() {
   gameStatus.chosenWord =
-    hangmanWords[Math.floor(Math.random() * hangmanWords.length)];
+  hangmanWords[Math.floor(Math.random() * hangmanWords.length)];
   gameStatus.guessedLetters = [];
   gameStatus.wrongGuesses = 0;
   displayWord();
