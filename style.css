@@ -1,12 +1,11 @@
 body {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
 }
 
-
 svg {
-    grid-column: 2 / 4;
-    margin-top: 3rem;
+  grid-column: 2 / 4;
+  margin-top: 3rem;
 }
 
 #ground,
@@ -15,33 +14,58 @@ svg {
 #body,
 #arms,
 #legs {
-    display: none; 
+  display: none;
 }
 
 article {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    grid-column: 5 / 7;
-    margin-top: 2rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  grid-column: 5 / 7;
+  margin-top: 2rem;
 }
 
 #start-button {
+  font-size: 1rem;
+  border-radius: 0.2rem;
+  margin-bottom: 1rem;
+  border: none;
+  background-color: rgb(110, 173, 110);
+  width: 8rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+#guess-button {
     font-size: 1rem;
     border-radius: 0.2rem;
     margin-bottom: 1rem;
     border: none;
-    background-color: rgb(110, 173, 110);
-    width: 8rem;
-    height: 2rem;
+    background-color: rgb(176, 136, 176);
+    width: 4rem;
+    height: 1.7rem;
     cursor: pointer;
 }
 
 #word-display {
     margin-bottom: 5rem;
+    margin-top: 5em;
+    text-align: flex-start;
+
+
+}
+
+#word-display span:not(.underscore) {
+    font-size: 3em;
+    margin-right: 0.5em;
+    display: inline-block;
+    text-align: center;
+    min-width: 1em;
 }
 
 .underscore {
-    font-size: 4em;
-    margin-right: 0.5em; 
-  }
-
-
+    font-size: 3em;
+    margin-right: 0.5em;
+    display: inline-block;
+    text-align: center;
+    min-width: 1em;
+    position: relative;
+}

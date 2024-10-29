@@ -25,13 +25,11 @@ function chooseRandomWord() {
 
 function displayWord() {
   const display = gameStatus.chosenWord
-    .split("")
-    .map((letter) =>
-      gameStatus.guessedLetters.includes(letter)
-        ? letter
-        : `<span class="underscore">_</span>`
-    )
-    .join(" ");
+      .split("")
+      .map(letter => gameStatus.guessedLetters.includes(letter) 
+          ? `<span>${letter}</span>` 
+          : `<span class="underscore">_</span>`)
+      .join("");
   wordDisplay.innerHTML = display;
 }
 
@@ -80,7 +78,7 @@ function handleGuess() {
 
 function checkGameStatus() {
   if (gameStatus.wrongGuesses >= maxWrongGuesses) {
-    message.textContent = `Game Over! Ordet var: ${gameStatus.chosenWord}`;
+    message.textContent = `Game Over..Ordet var: ${gameStatus.chosenWord}`;
     guessButton.disabled = true;
   } else if (!wordDisplay.textContent.includes("_")) {
     message.textContent = "Grattis, rätt ord!";
