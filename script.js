@@ -15,15 +15,15 @@ const gameStatus = {
 
 function chooseRandomWord() {
   gameStatus.chosenWord =
-    hangmanWords[Math.floor(Math.random() * hangmanWords.length)];
+  hangmanWords[Math.floor(Math.random() * hangmanWords.length)];
   gameStatus.guessedLetters = [];
   gameStatus.wrongGuesses = 0;
   displayWord();
   resetHangman();
   message.textContent = "Nytt spel, gissa en bokstav!";
 
-  letterInput.style.display = "inline-block";
-  guessButton.style.display = "inline-block";
+  letterInput.style.display = "block";
+  guessButton.style.display = "block";
 }
 
 function displayWord() {
