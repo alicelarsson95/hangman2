@@ -15,7 +15,7 @@ const gameStatus = {
 
 function chooseRandomWord() {
   gameStatus.chosenWord =
-  hangmanWords[Math.floor(Math.random() * hangmanWords.length)];
+    hangmanWords[Math.floor(Math.random() * hangmanWords.length)];
   gameStatus.guessedLetters = [];
   gameStatus.wrongGuesses = 0;
   displayWord();
@@ -26,15 +26,15 @@ function chooseRandomWord() {
   guessButton.style.display = "block";
 }
 
-
-
 function displayWord() {
   const display = gameStatus.chosenWord
-      .split("")
-      .map(letter => gameStatus.guessedLetters.includes(letter) 
-          ? `<span>${letter}</span>` 
-          : `<span class="underscore">_</span>`)
-      .join("");
+    .split("")
+    .map((letter) =>
+      gameStatus.guessedLetters.includes(letter)
+        ? `<span>${letter}</span>`
+        : `<span class="underscore">_</span>`
+    )
+    .join("");
   wordDisplay.innerHTML = display;
 }
 
@@ -92,7 +92,13 @@ function checkGameStatus() {
 }
 
 guessButton.addEventListener("click", handleGuess);
-startButton.addEventListener("click", () => {
+startButton.addEventListener("click", startGame);
+letterInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    guessButton.click();
+  }})
+
+function startGame() {
   chooseRandomWord();
   guessButton.disabled = false;
-});
+}
