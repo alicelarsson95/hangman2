@@ -88,11 +88,8 @@ function checkGameStatus() {
   }
 }
 
+guessButton.addEventListener("click", handleGuess);
 startButton.addEventListener("click", () => {
-  chooseRandomWord(); 
-  guessButton.disabled = false;   
-  
-  letterInput.style.display = "block";   
-  guessButton.style.display = "block";   
+  chooseRandomWord();
+  guessButton.disabled = false;
 });
-
