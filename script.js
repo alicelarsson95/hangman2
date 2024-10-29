@@ -21,7 +21,12 @@ function chooseRandomWord() {
   displayWord();
   resetHangman();
   message.textContent = "Nytt spel, gissa en bokstav!";
+
+  letterInput.style.display = "block";
+  guessButton.style.display = "block";
 }
+
+
 
 function displayWord() {
   const display = gameStatus.chosenWord
