@@ -1,79 +1,83 @@
-const hangmanWords = ["apple", "grape", "peach", "berry", "lemon"];
-let chosenWord = "";
-let guessedLetters = [];
-let wrongGuesses = 0;
 const maxWrongGuesses = 6;
-
+const hangmanParts = ["head", "body", "arms", "legs", "scaffold", "ground"];
+const hangmanWords = ["apple", "grape", "peach", "berry", "lemon"];
 const wordDisplay = document.getElementById("word-display");
+
 const letterInput = document.getElementById("letter-input");
 const guessButton = document.getElementById("guess-button");
 const message = document.getElementById("message");
 const startButton = document.getElementById("start-button");
+const gameStatus = {
+  chosenWord: "",
+  guessedLetters: [],
+  wrongGuesses: 0,
+};
 
 function chooseRandomWord() {
-  chosenWord = hangmanWords[Math.floor(Math.random() * hangmanWords.length)];
-  guessedLetters = []; 
-  wrongGuesses = 0;    
+  gameStatus.chosenWord =
+    hangmanWords[Math.floor(Math.random() * hangmanWords.length)];
+  gameStatus.guessedLetters = [];
+  gameStatus.wrongGuesses = 0;
   displayWord();
-  resetHangman(); 
+  resetHangman();
   message.textContent = "Nytt spel, gissa en bokstav!";
 }
 
 function displayWord() {
-  const display = chosenWord
+  const display = gameStatus.chosenWord
     .split("")
-    .map((letter) => (guessedLetters.includes(letter) ? letter : "_"))
+    .map((letter) => (gameStatus.guessedLetters.includes(letter) ? letter : `<span class="underscore">_</span>`))
     .join(" ");
-  wordDisplay.textContent = display;
+  wordDisplay.innerHTML = display;
 }
 
+
 function showHangmanPart() {
-  const hangmanParts = ["head", "body", "arms", "legs"]; 
-  if (wrongGuesses <= maxWrongGuesses) {
-    document.getElementById(hangmanParts[wrongGuesses - 1]).style.display = "block"; 
+  if (gameStatus.wrongGuesses <= maxWrongGuesses) {
+    document.getElementById(hangmanParts[gameStatus.wrongGuesses - 1]).style.display =
+      "block";
   }
 }
 
 function resetHangman() {
-  const hangmanParts = ["head", "body", "arms", "legs"];
-  hangmanParts.forEach(part => {
-    document.getElementById(part).style.display = "none"; 
+  hangmanParts.forEach((part) => {
+    document.getElementById(part).style.display = "none";
   });
 }
 
 function handleGuess() {
   const guess = letterInput.value.toLowerCase();
-  letterInput.value = ""; 
-  
+  letterInput.value = "";
+
   if (guess.length !== 1) {
     message.textContent = "Gissa en bokstav!";
     return;
   }
 
-  if (guessedLetters.includes(guess)) {
+  if (gameStatus.guessedLetters.includes(guess)) {
     message.textContent = "Du har redan gissat på denna bokstav.";
     return;
   }
 
-  guessedLetters.push(guess);
+  gameStatus.guessedLetters.push(guess);
 
-  if (chosenWord.includes(guess)) {
+  if (gameStatus.chosenWord.includes(guess)) {
     message.textContent = "Rätt gissning!";
   } else {
-    wrongGuesses++;
-    showHangmanPart(); 
+    gameStatus.wrongGuesses++;
+    showHangmanPart();
     message.textContent = "Fel gissning..";
   }
 
   displayWord();
   checkGameStatus();
-  letterInput.focus(); 
+  letterInput.focus();
 }
 
 function checkGameStatus() {
-  if (wrongGuesses >= maxWrongGuesses) {
-    message.textContent = `Game Over! Ordet var: ${chosenWord}`;
-    guessButton.disabled = true; 
+  if (gameStatus.wrongGuesses >= maxWrongGuesses) {
+    message.textContent = `Game Over! Ordet var: ${gameStatus.chosenWord}`;
+    guessButton.disabled = true;
   } else if (!wordDisplay.textContent.includes("_")) {
     message.textContent = "Grattis, rätt ord!";
     guessButton.disabled = true;
@@ -83,5 +87,5 @@ function checkGameStatus() {
 guessButton.addEventListener("click", handleGuess);
 startButton.addEventListener("click", () => {
   chooseRandomWord();
-  guessButton.disabled = false; 
+  guessButton.disabled = false;
 });
