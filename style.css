@@ -1,6 +1,7 @@
 body {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
+  background-image: linear-gradient(to right, #556270 , #FF6B6B);
 }
 
 svg {
@@ -28,7 +29,7 @@ article {
   border-radius: 0.2rem;
   margin-bottom: 1rem;
   border: none;
-  background-color: rgb(110, 173, 110);
+  background-color: rgb(157, 67, 74);
   width: 8rem;
   height: 2rem;
   cursor: pointer;
@@ -40,7 +41,7 @@ article {
   border-radius: 0.2rem;
   margin-bottom: 1rem;
   border: none;
-  background-color: rgb(176, 136, 176);
+  background-color: rgb(157, 67, 74);
   width: 4rem;
   height: 1.7rem;
   cursor: pointer;
@@ -77,8 +78,8 @@ article {
   border: 0;
 }
 
-
 .modal {
+  z-index: 1;
   display: none; 
   position: fixed;
   left: 0;
@@ -97,4 +98,15 @@ article {
   text-align: center;
   border-radius: 5%;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+#play-again {
+  font-size: 1rem;
+  border: none;
+  background-color: rgb(162, 76, 83);
+  color: rgb(255, 255, 255);
+  width: 7rem;
+  height: 1.9rem;
+  cursor: pointer;
+  border-radius: 0.3rem;
 }
