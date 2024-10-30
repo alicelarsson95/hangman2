@@ -20,7 +20,7 @@ svg {
 
 article {
   font-family: Georgia, "Times New Roman", Times, serif;
-  grid-column: 5 / 9;
+  grid-column: 6 / 9;
   margin-top: 2rem;
 }
 
@@ -119,4 +119,11 @@ h1 {
   justify-content: center;
 }
 
-
+#start-button {
+  font-size: 20px;
+  justify-self: center;
+  align-self: flex-start;
+  grid-column: 4/6;
+  width: 8em;
+  height: 2.5em;
+}
