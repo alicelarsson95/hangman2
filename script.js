@@ -1,6 +1,6 @@
 const maxWrongGuesses = 6;
 const hangmanParts = ["ground", "scaffold", "head", "body", "arms", "legs"];
-const hangmanWords = ["äpple", "lampa", "kaffe", "fågel", "Mössa"];
+const hangmanWords = ["äpple", "lampa", "kaffe", "fågel", "mössa"];
 
 const wordDisplay = document.getElementById("word-display");
 const letterInput = document.getElementById("letter-input");
@@ -12,6 +12,10 @@ const gameStatus = {
   guessedLetters: [],
   wrongGuesses: 0,
 };
+
+const modal = document.getElementById("game-modal");
+const modalMessage = document.getElementById("modal-message");
+const playAgainButton = document.getElementById("play-again");
 
 function chooseRandomWord() {
   gameStatus.chosenWord =
@@ -81,12 +85,36 @@ function handleGuess() {
   letterInput.focus();
 }
 
+//popup
+function showModal(messageText) {
+  modalMessage.textContent = messageText;
+  modal.style.display = "block";
+}
+
+function closeModalPopup() {
+  modal.style.display = "none";
+}
+
+function handlePlayAgain() {
+  closeModalPopup();
+  chooseRandomWord();
+  guessButton.disabled = false;
+}
+
+window.addEventListener("click", (event) => {
+  if (event.target === modal) {
+    closeModalPopup();
+  }
+});
+
+playAgainButton.addEventListener("click", handlePlayAgain);
+
 function checkGameStatus() {
   if (gameStatus.wrongGuesses >= maxWrongGuesses) {
-    message.textContent = `Game Over..Ordet var: ${gameStatus.chosenWord}`;
+    showModal(`Game Over.. Ordet var: ${gameStatus.chosenWord}`);
     guessButton.disabled = true;
   } else if (!wordDisplay.textContent.includes("_")) {
-    message.textContent = "Grattis, rätt ord!";
+    showModal(`Grattis!! Ordet var: ${gameStatus.chosenWord}`);
     guessButton.disabled = true;
   }
 }
