@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hangman</title>
     <link rel="stylesheet" href="style.css">
-    <script src="src/pide.js" defer></script>
-    <script src="script.js" type="module" defer></script>
-    <script src="alice.js" type="module" defer></script>
+    <script src="src/pide.js" type="module" defer></script>
 
 </head>
 <body>
-    
+    <div id="game-modal" class="modal">
+        <div class="modal-content">
+            <h2>Du förlorade!</h2>
+          <p id="modal-message">Vill du spela igen?</p>
+          <button id="play-again">Spela igen</button>
+        </div>
+    </div>
  
 
 <svg width="501" height="565" viewBox="0 0 501 565" fill="none" xmlns="http://www.w3.org/2000/svg">
