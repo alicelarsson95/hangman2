@@ -1,6 +1,6 @@
 const maxWrongGuesses = 6;
-const hangmanParts = ["head", "body", "arms", "legs", "scaffold", "ground"];
-const hangmanWords = ["apple", "grape", "peach", "berry", "lemon"];
+const hangmanParts = ["ground", "scaffold", "head", "body", "arms", "legs"];
+const hangmanWords = ["äpple", "lampa", "kaffe", "fågel", "Mössa"];
 
 const wordDisplay = document.getElementById("word-display");
 const letterInput = document.getElementById("letter-input");
@@ -28,11 +28,13 @@ function chooseRandomWord() {
 
 function displayWord() {
   const display = gameStatus.chosenWord
-      .split("")
-      .map(letter => gameStatus.guessedLetters.includes(letter) 
-          ? `<span>${letter}</span>` 
-          : `<span class="underscore">_</span>`)
-      .join("");
+    .split("")
+    .map((letter) =>
+      gameStatus.guessedLetters.includes(letter)
+        ? `<span>${letter}</span>`
+        : `<span class="underscore">_</span>`
+    )
+    .join("");
   wordDisplay.innerHTML = display;
 }
 
@@ -90,7 +92,13 @@ function checkGameStatus() {
 }
 
 guessButton.addEventListener("click", handleGuess);
-startButton.addEventListener("click", () => {
+startButton.addEventListener("click", startGame);
+letterInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    guessButton.click();
+  }})
+
+function startGame() {
   chooseRandomWord();
   guessButton.disabled = false;
-});
+}

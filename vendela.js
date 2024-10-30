@@ -1,9 +1,5 @@
-function displayWord() {
-    const display = gameStatus.chosenWord
-        .split("")
-        .map(letter => gameStatus.guessedLetters.includes(letter) 
-            ? <span>${letter}</span> 
-            : <span class="underscore">_</span>)
-        .join("");
-    wordDisplay.innerHTML = display;
-}
+letterInput.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") { 
+      guessButton.click();
+    }
+  });
