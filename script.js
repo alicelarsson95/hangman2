@@ -12,7 +12,6 @@ const gameStatus = {
   guessedLetters: [],
   wrongGuesses: 0,
 };
-
 const modal = document.getElementById("game-modal");
 const modalMessage = document.getElementById("modal-message");
 const playAgainButton = document.getElementById("play-again");
@@ -86,9 +85,14 @@ function handleGuess() {
 }
 
 //popup
-function showModal(messageText) {
-  modalMessage.textContent = messageText;
-  modal.style.display = "block";
+function showModal(titleText, messageText) {
+  const modalTitle = document.getElementById("modal-title"); 
+  const modalMessage = document.getElementById("modal-message");
+
+  modalTitle.textContent = titleText;  
+  modalMessage.textContent = messageText;  
+
+  modal.style.display = "block";   
 }
 
 function closeModalPopup() {
@@ -111,10 +115,10 @@ playAgainButton.addEventListener("click", handlePlayAgain);
 
 function checkGameStatus() {
   if (gameStatus.wrongGuesses >= maxWrongGuesses) {
-    showModal(`Game Over.. Ordet var: ${gameStatus.chosenWord}`);
+    showModal("Du förlorade..", `Ordet var: ${gameStatus.chosenWord}`);
     guessButton.disabled = true;
   } else if (!wordDisplay.textContent.includes("_")) {
-    showModal(`Grattis!! Ordet var: ${gameStatus.chosenWord}`);
+    showModal("Du vann!", `Ordet var: ${gameStatus.chosenWord}`);
     guessButton.disabled = true;
   }
 }
