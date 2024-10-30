@@ -12,6 +12,8 @@ const gameStatus = {
   guessedLetters: [],
   wrongGuesses: 0,
 };
+
+//Modal för att visa vinst/förlust-meddelanden
 const modal = document.getElementById("game-modal");
 const modalMessage = document.getElementById("modal-message");
 const playAgainButton = document.getElementById("play-again");
@@ -48,13 +50,14 @@ function showHangmanPart() {
     ).style.display = "block";
   }
 }
-
+// Funktion som döljer alla delar av gubben för att återställa inför ett nytt spel
 function resetHangman() {
   hangmanParts.forEach((part) => {
     document.getElementById(part).style.display = "none";
   });
 }
 
+// Funktion som hanterar spelarens gissning och uppdaterar spelets status
 function handleGuess() {
   const guess = letterInput.value.toLowerCase();
   letterInput.value = "";
@@ -84,7 +87,7 @@ function handleGuess() {
   letterInput.focus();
 }
 
-//popup
+// Visar en modal med meddelande när spelet är över
 function showModal(titleText, messageText) {
   const modalTitle = document.getElementById("modal-title"); 
   const modalMessage = document.getElementById("modal-message");
@@ -113,6 +116,7 @@ window.addEventListener("click", (event) => {
 
 playAgainButton.addEventListener("click", handlePlayAgain);
 
+// Kontrollerar om spelaren har vunnit eller förlorat och visar upp svaret genom en modal
 function checkGameStatus() {
   if (gameStatus.wrongGuesses >= maxWrongGuesses) {
     showModal("Du förlorade..", `Ordet var: ${gameStatus.chosenWord}`);
@@ -122,7 +126,7 @@ function checkGameStatus() {
     guessButton.disabled = true;
   }
 }
-
+// 
 guessButton.addEventListener("click", handleGuess);
 startButton.addEventListener("click", startGame);
 letterInput.addEventListener("keydown", (event) => {
@@ -130,6 +134,7 @@ letterInput.addEventListener("keydown", (event) => {
     guessButton.click();
   }})
 
+  // Startar spelet när spelaren trycker på "Starta spel"
 function startGame() {
   chooseRandomWord();
   guessButton.disabled = false;
