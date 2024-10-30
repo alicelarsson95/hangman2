@@ -1,6 +1,7 @@
 body {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
+  background-image: linear-gradient(to right, #556270 , #FF6B6B);
 }
 
 svg {
@@ -28,7 +29,7 @@ article {
   border-radius: 0.2rem;
   margin-bottom: 1rem;
   border: none;
-  background-color: rgb(110, 173, 110);
+  background-color: rgb(157, 67, 74);
   width: 8rem;
   height: 2rem;
   cursor: pointer;
@@ -40,7 +41,7 @@ article {
   border-radius: 0.2rem;
   margin-bottom: 1rem;
   border: none;
-  background-color: rgb(176, 136, 176);
+  background-color: rgb(157, 67, 74);
   width: 4rem;
   height: 1.7rem;
   cursor: pointer;
