@@ -20,7 +20,7 @@ svg {
 
 article {
   font-family: Georgia, "Times New Roman", Times, serif;
-  grid-column: 5 / 7;
+  grid-column: 5 / 9;
   margin-top: 2rem;
 }
 
@@ -95,4 +95,6 @@ article {
   border: 1px solid #888;
   width: 400px;
   text-align: center;
+  border-radius: 5%;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
