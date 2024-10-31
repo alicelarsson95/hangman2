@@ -9,12 +9,7 @@ svg {
   margin-top: 3rem;
 }
 
-#ground,
-#scaffold,
-#head,
-#body,
-#arms,
-#legs {
+#ground, #scaffold, #head, #body, #arms, #legs {
   display: none;
 }
 
@@ -126,4 +121,8 @@ h1 {
   grid-column: 4/6;
   width: 8em;
   height: 2.5em;
+  cursor: pointer;
+  border: none;
+  background-color: rgb(157, 67, 74);
 }
+

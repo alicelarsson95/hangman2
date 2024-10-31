@@ -114,7 +114,7 @@ function handlePlayAgain() {
   guessButton.disabled = false;
 }
 
-// Stänger modalen om spelaren klickar utanför modalfönstret
+ // Stänger modalen om spelaren klickar utanför modalfönstret
 window.addEventListener("click", (event) => {
   if (event.target === modal) {
     closeModalPopup();
@@ -141,7 +141,7 @@ letterInput.addEventListener("keydown", (event) => {
     guessButton.click();
   }})
 
-  // Startar spelet när spelaren trycker på "Starta spel"
+// Startar spelet när spelaren trycker på "Starta spel"
 function startGame() {
   chooseRandomWord();
   guessButton.disabled = false;
