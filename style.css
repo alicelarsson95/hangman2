@@ -2,6 +2,7 @@ body {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   background-image: linear-gradient(to right, #556270 , #FF6B6B);
+  overflow: hidden;
 }
 
 svg {
@@ -19,14 +20,24 @@ article {
   margin-top: 2rem;
 }
 
+h1 {
+  display: flex;
+  font-size: 50px;
+  grid-column: 3/7;
+  grid-row: 1/1;
+  justify-content: center;
+}
+
 #start-button {
-  font-size: 1rem;
+  justify-self: center;
+  align-self: flex-start;
+  grid-column: 4/6;
+  font-size: 1.1rem;
   border-radius: 0.2rem;
-  margin-bottom: 1rem;
   border: none;
   background-color: rgb(157, 67, 74);
   width: 8rem;
-  height: 2rem;
+  height: 2.5rem;
   cursor: pointer;
 }
 
@@ -105,24 +116,3 @@ article {
   cursor: pointer;
   border-radius: 0.3rem;
 }
-
-h1 {
-  display: flex;
-  font-size: 50px;
-  grid-column: 3/7;
-  grid-row: 1/1;
-  justify-content: center;
-}
-
-#start-button {
-  font-size: 20px;
-  justify-self: center;
-  align-self: flex-start;
-  grid-column: 4/6;
-  width: 8em;
-  height: 2.5em;
-  cursor: pointer;
-  border: none;
-  background-color: rgb(157, 67, 74);
-}
-
