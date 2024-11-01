@@ -58,6 +58,10 @@ h1 {
   cursor: pointer;
 }
 
+#start-button:hover, #guess-button:hover, #play-again:hover {
+  background: #fd5c63;
+}
+
 #word-display {
   margin-bottom: 5rem;
   margin-top: 5em;
