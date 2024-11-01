@@ -6,7 +6,7 @@ body {
 }
 
 svg {
-  grid-column: 2 / 4;
+  grid-column: 1 / 4;
   margin-top: 3rem;
 }
 
@@ -51,6 +51,10 @@ h1 {
   width: 4rem;
   height: 1.7rem;
   cursor: pointer;
+}
+
+#start-button:hover, #guess-button:hover, #play-again:hover {
+  background: #fd5c63;
 }
 
 #word-display {
