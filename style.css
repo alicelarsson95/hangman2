@@ -6,7 +6,7 @@ body {
 }
 
 svg {
-  grid-column: 2 / 4;
+  grid-column: 1 / 4;
   margin-top: 3rem;
 }
 
